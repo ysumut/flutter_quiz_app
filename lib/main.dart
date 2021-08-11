@@ -1,8 +1,24 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return MyState();
+  }
+}
+
+class MyState extends State<MyApp> {
+  var questions = [
+    'Which team has the most league cup in Turkey?',
+    'Which animals lives the longest?'
+  ];
+  var qNumber = 0;
+  var isFinish = false;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -11,25 +27,23 @@ class MyApp extends StatelessWidget {
 
         body: Container(
           child: Column(children: [
-            Text('Question'),
+            Center(child: Text('Question: ' + questions[qNumber])),
+
             ElevatedButton(onPressed: clickAnswer, child: Text('Answer-1'),),
             ElevatedButton(onPressed: clickAnswer, child: Text('Answer-2'),),
-            ElevatedButton(onPressed: clickAnswer, child: Text('Answer-2'),),
-          ],),
-        ),
+            ElevatedButton(onPressed: clickAnswer, child: Text('Answer-3'),),
 
-        bottomNavigationBar: BottomNavigationBar(
-          items: const <BottomNavigationBarItem> [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Ev'),
-            BottomNavigationBarItem(icon: Icon(Icons.airplanemode_active), label: 'Uçak'),
-            BottomNavigationBarItem(icon: Icon(Icons.api), label: 'Api'),
-          ],
+            Visibility(child: Text('Quiz is finished'), visible: isFinish,)
+          ],),
         ),
       ),
     );
   }
 
   void clickAnswer() {
-    print('Basıldı');
+    setState(() {
+      if(qNumber < questions.length - 1) qNumber++;
+      else if(qNumber == questions.length - 1) isFinish = true;
+    });
   }
 }
