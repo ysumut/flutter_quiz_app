@@ -1,12 +1,24 @@
 import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
-  Result();
+  final Function resetQuiz;
+
+  Result(this.resetQuiz);
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(child: Text('Quiz is finished!')),
-    );
+    return Center(child: Container(
+      margin: EdgeInsets.all(20),
+      child: Column(
+        children: [
+          Text(
+            'Quiz is finished!',
+            textAlign: TextAlign.center,
+          ),
+
+          ElevatedButton(onPressed: resetQuiz, child: Text('Reset Quiz'))
+        ],
+      ),
+    ),);
   }
 }
