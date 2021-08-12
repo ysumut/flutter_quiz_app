@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/answer.dart';
-import 'package:flutter_quiz_app/question.dart';
+import 'quiz/quiz.dart';
+import 'quiz/result.dart';
 
 void main() => runApp(MyApp());
 
@@ -31,13 +31,8 @@ class _MyAppState extends State<MyApp> {
         appBar: AppBar(title: Text('Quiz App'), backgroundColor: Colors.red, centerTitle: true,),
 
         body: _qNumber < questions.length ?
-        Column(children: [
-          Question(_qNumber, questions[_qNumber]['question']),
-
-          ...(questions[_qNumber]['answers'] as List<String>).map((answer) {
-            return Answer(clickAnswer, answer);
-          }),
-        ],) : Center(child: Text('Quiz is finished'),),
+        Quiz(_qNumber, questions, clickAnswer) :
+        Result(),
       ),
     );
   }
