@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_quiz_app/quiz/total_score.dart';
+import 'quiz/total_score.dart';
 import 'quiz/quiz.dart';
 import 'quiz/result.dart';
 
@@ -15,23 +15,32 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final questions = [
     {
-      'question': 'Which team has the most league cup in Turkey?',
-      'answers': [
-        {'text': 'Trabzonspor', 'score': 0},
-        {'text': 'Galatasaray', 'score': 10},
-        {'text': 'Beşiktaş', 'score': 0},
-        {'text': 'Fenerbahçe', 'score': 0},
+      "question": "Which team has the most league cup in Turkey?",
+      "answers": [
+        {"text": "Trabzonspor", "score": 0},
+        {"text": "Galatasaray", "score": 10},
+        {"text": "Beşiktaş", "score": 0},
+        {"text": "Fenerbahçe", "score": 0}
       ]
     },
     {
-      'question': 'Which animals lives the longest?',
-      'answers': [
-        {'text': 'Lion', 'score': 0},
-        {'text': 'Monkey', 'score': 0},
-        {'text': 'Tortoise', 'score': 15},
-        {'text': 'Pigeon', 'score': 0},
+      "question": "Which animals lives the longest?",
+      "answers": [
+        {"text": "Tortoise", "score": 15},
+        {"text": "Monkey", "score": 0},
+        {"text": "Lion", "score": 0},
+        {"text": "Pigeon", "score": 0}
       ]
     },
+    {
+      "question": "How tall is the tallest building in the world?",
+      "answers": [
+        {"text": "530 metres", "score": 0},
+        {"text": "945 metres", "score": 0},
+        {"text": "647 metres", "score": 0},
+        {"text": "828 metres", "score": 20}
+      ]
+    }
   ];
   int _qNumber = 0, _totalScore = 0;
 
